@@ -7,16 +7,12 @@ func main() {
   value := make([]int, 0, 60)
   cap := cap(value)
   for len := len(value); len < cap; len++ {
-	  len++;
+	  len+=2;
 	value = append(value, len)
   }
 
-  for _,val := range value {
-	  fmt.Println(val)
-  }
-  test := binarySearch(33,value)
-  fmt.Println(test)
-  
+  test := binarySearch(5,value)
+  fmt.Println(test)  
 }
 
 func binarySearch(target int, valueSlice []int) int{
@@ -28,9 +24,13 @@ func binarySearch(target int, valueSlice []int) int{
 	  if(valueSlice[mid] == target){
 		  return mid
 	  }
+	  if(left +1 == right){
+		  fmt.Println("not found")
+		  break
+	  }
 	  if(target > valueSlice[mid]){
 		  left = mid
-		  mid = (mid +(right - mid)) /2
+		  mid = (right + mid) /2
 		  continue
 	  }
 	  if(target < valueSlice[mid]){
