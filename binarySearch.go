@@ -15,6 +15,7 @@ func main() {
   fmt.Println(test)  
 }
 
+//TODO: 再帰関数化&ロジックを修正
 func binarySearch(target int, valueSlice []int) int{
   length := len(valueSlice)
   mid := length /2
